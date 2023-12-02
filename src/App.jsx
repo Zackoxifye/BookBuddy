@@ -19,7 +19,12 @@ function App() {
     <>
       <BrowserRouter>
         <Header />
-        <Navigations />
+        <div id="navbar">
+          <Link to="/">Home</Link>
+          <Link to="/books">All Books</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/register">Register</Link>
+        </div>
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/books" element={<Books />} />

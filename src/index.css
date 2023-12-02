@@ -11,3 +11,32 @@ body {
 }
 
 /* Add your own custom styles here */
+
+/* ______________________________________HEADER_____________________________________________ */
+
+.header-div {
+  font-size: 200%;
+  font-family: inherit;
+  margin-left: 10%;
+}
+
+/* ________________________________________NAVBAR________________________________________________ */
+
+#navbar {
+  font-size: 200%;
+  text-align: right;
+  background-color: #333;
+  padding: 15px;
+}
+
+#navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 15px;
+}
+
+#navbar a:hover {
+  color: red;
+}
+
+/* _____________________________________________________________________________________________ */
