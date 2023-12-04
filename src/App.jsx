@@ -10,6 +10,7 @@ import Books from "./components/Books";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import SingleBook from "./components/SingleBook";
+import Account from "./components/Account";
 
 function App() {
   const [error, setError] = useState(null);
@@ -21,16 +22,22 @@ function App() {
         <Header />
         <div id="navbar">
           <Link to="/">Home</Link>
-          <Link to="/books">All Books</Link>
+          <Link to="/books">Books</Link>
           <Link to="/login">Login</Link>
           <Link to="/register">Register</Link>
+          <Link to="/account">Account</Link>
         </div>
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/books" element={<Books />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/books/:id" element={<SingleBook />} />
+          <Route path="/login" element={<Login setToken={setToken} />} />
+          <Route
+            path="/register"
+            element={<Register token={token} setToken={setToken} />}
+          />
+          <Route path="/account" element={<Account token={token} />} />
+          <Route path="/books/:bookId" element={<SingleBook />} />
+          <Route path="*" element={<Homepage />} />
         </Routes>
         <Footer />
       </BrowserRouter>

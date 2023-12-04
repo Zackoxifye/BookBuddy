@@ -1,6 +1,6 @@
 body {
   font-family: Georgia, serif;
-  background-color: #f8f8f8;
+  background-color: cornsilk;
   margin: 0;
   padding: 0;
 }
@@ -39,4 +39,96 @@ body {
   color: red;
 }
 
-/* _____________________________________________________________________________________________ */
+/*_____________________________________________HOMEPAGE.JSX__________________________________________________*/
+
+.homepageWelcome,
+.homepageSecondaryTitle,
+.homepageThirdTitle,
+.homepageFourthTitle {
+  text-align: center;
+}
+
+.homepageWelcome {
+  font-size: 400%;
+  margin-right: 20%;
+}
+
+.homepageSecondaryTitle {
+  font-size: 200%;
+  margin-left: 20%;
+}
+
+.homepageThirdTitle {
+  font-size: 700%;
+}
+
+.homepageFourthTitle {
+  font-size: 150%;
+  margin-right: 10%;
+}
+
+/* ____________________________________________BOOK_CARD_________________________________________________ */
+
+.bookCard {
+  width: 350px;
+  text-align: center;
+  background-color: #333;
+  border: 3px solid white;
+  border-radius: 5%;
+  padding: 30px;
+  padding-top: 50px;
+  color: white;
+  font-size: 150%;
+  margin-left: 5%;
+  text-shadow: 13px 8px 8px black;
+  box-shadow: 15px 10px 8px black;
+}
+
+.bookCard img {
+  width: 250px;
+  border: 3px solid white;
+}
+
+#all-books-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+/*___________________________________________BOOKS.JSX___________________________________________*/
+
+.books-page-title {
+  text-align: center;
+  font-size: 400%;
+  text-decoration: underline;
+}
+
+/*________________________________________REGISTER.JSX________________________________________________*/
+
+.register-title {
+  text-align: center;
+  font-size: 350%;
+  text-decoration: underline;
+}
+
+.register-form {
+  font-size: 150%;
+  text-align: center;
+}
+
+.register-button {
+  font-size: 100%;
+  margin-top: 5%;
+}
+
+/*_________________________________________LOGIN.JSX________________________________________________*/
+
+/*_________________________________________ACCOUNT.JSX____________________________________________________*/
+
+.pleaseLogIn {
+  font-size: 200%;
+  text-align: center;
+  margin-top: 15%;
+}
+
+/*_____________________________________________________________________________________________*/
