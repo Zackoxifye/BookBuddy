@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
 export default function Login({ setToken }) {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [successMessage, setSuccessMessage] = useState(null);
@@ -29,8 +31,10 @@ export default function Login({ setToken }) {
         setError(result.message);
       } else {
         setToken(result.token);
+        localStorage.setItem("token", result.token);
         setSuccessMessage(result.message);
         console.log("You've been successfuly signed in");
+        navigate("/account");
       }
     } catch (error) {
       setError("An error occurred while logging in.");

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import CheckedOutBooks from "./CheckedOut";
 
-export default function Account({ token }) {
+export default function Account({ token, userId }) {
   const [userInfo, setUserInfo] = useState(null);
 
   useEffect(() => {
@@ -9,7 +10,7 @@ export default function Account({ token }) {
       fetch("https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/users/me", {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `${token}`,
+          Authorization: `Bearer ${token}`,
         },
       })
         .then((response) => response.json())
@@ -26,10 +27,13 @@ export default function Account({ token }) {
         <>
           <h1 className="account-title">Account Information</h1>
           {userInfo ? (
-            <div>
-              <p>Email: {userInfo.email}</p>
-              <p>First Name: {userInfo.firstName}</p>
-              <p>Last Name: {userInfo.lastName}</p>
+            <div className="user-information">
+              <p className="user-email">Email: {userInfo.email}</p>
+              <p className="user-first-name">
+                First Name: {userInfo.firstname}
+              </p>
+              <p className="user-last-name">Last Name: {userInfo.lastname}</p>
+              <CheckedOutBooks userId={userId} token={token} />
             </div>
           ) : (
             <p>Loading user information...</p>

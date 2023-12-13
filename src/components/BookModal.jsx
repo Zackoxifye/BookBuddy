@@ -1,6 +1,6 @@
 import React from "react";
 
-const bookModal = ({ book }) => {
+const BookModal = ({ book }) => {
   return (
     <div>
       <div className="bookCard">
@@ -17,4 +17,4 @@ const bookModal = ({ book }) => {
   );
 };
 
-export default bookModal;
+export default BookModal;

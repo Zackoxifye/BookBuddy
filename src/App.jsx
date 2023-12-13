@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import bookLogo from "./assets/books.png";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
@@ -9,12 +9,19 @@ import Homepage from "./components/Homepage";
 import Books from "./components/Books";
 import Login from "./components/Login";
 import Register from "./components/Register";
-import SingleBook from "./components/SingleBook";
 import Account from "./components/Account";
+import Details from "./components/Details";
 
 function App() {
   const [error, setError] = useState(null);
   const [token, setToken] = useState(null);
+
+  useEffect(() => {
+    const localToken = localStorage.getItem("token");
+    if (localToken) {
+      setToken(localToken);
+    }
+  }, []);
 
   return (
     <>
@@ -23,7 +30,18 @@ function App() {
         <div id="navbar">
           <Link to="/">Home</Link>
           <Link to="/books">Books</Link>
-          <Link to="/login">Login</Link>
+          {!token && <Link to="/login">Login</Link>}
+          {token && (
+            <Link
+              to="/"
+              onClick={() => {
+                localStorage.setItem("token", "");
+                setToken("");
+              }}
+            >
+              Logout
+            </Link>
+          )}
           <Link to="/register">Register</Link>
           <Link to="/account">Account</Link>
         </div>
@@ -36,7 +54,7 @@ function App() {
             element={<Register token={token} setToken={setToken} />}
           />
           <Route path="/account" element={<Account token={token} />} />
-          <Route path="/books/:bookId" element={<SingleBook />} />
+          <Route path="/books/:bookId" element={<Details token={token} />} />
           <Route path="*" element={<Homepage />} />
         </Routes>
         <Footer />

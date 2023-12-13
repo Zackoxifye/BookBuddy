@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-export default function Register() {
+export default function Register({ setToken }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
   const [error, setError] = useState(null);
 
   async function handleSubmit(event) {
@@ -19,7 +19,7 @@ export default function Register() {
             Accept: "application/json",
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ email, password, firstName, lastName }),
+          body: JSON.stringify({ email, password, firstname, lastname }),
         }
       );
 
@@ -43,15 +43,15 @@ export default function Register() {
           <label>
             First Name:{" "}
             <input
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
+              value={firstname}
+              onChange={(e) => setFirstname(e.target.value)}
             />
           </label>
           <label>
             Last Name:{" "}
             <input
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
+              value={lastname}
+              onChange={(e) => setLastname(e.target.value)}
             />
           </label>
           <br />
